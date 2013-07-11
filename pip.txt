@@ -1,0 +1,9 @@
+Django
+List
+couchbase
+msgpack-python
+pyechonest
+requests
+selenium
+unittest2
+uuid
