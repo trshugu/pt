@@ -1,6 +1,6 @@
 ◆action
 ・ORM
-・スタンドアロンWebサーバ
+＊スタンドアロンWebサーバ
 ・json
 ・テンプレートエンジン
 ・テスティングフレームワーク
@@ -10,6 +10,26 @@
 ◆someday
 ◆document
 =================================================
+2013/07/12 19:27
+●Django手順
+http://codezine.jp/article/detail/4264?p=2
+django-admin.py startproject tmp
+setting.py 編集
+manages.py syncdb
+manages.py runserver
+django-admin.py startapp アプリ名
+setting.py 編集
+
+Models.py 編集
+manages.py syncdb DB同期
+settings.py 管理インタフェース
+manages.py syncdb
+urls.py 編集
+settings.py TEMPLATE_DIRS
+ビュー関数
+urls.py 編集 URLディスパッチャ
+
+
 
 
 ◆done===========================================

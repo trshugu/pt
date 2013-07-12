@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for djangotmp project.
 
 DEBUG = True
@@ -8,11 +9,11 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
+import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:\github\pt\djangotmp\djangotmp\djan.sqlite',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.dirname(__file__) + os.sep + 'djangotmp.sqlite',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -83,7 +84,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'k&7)97qumsn1hq#8zmi=yat7((3@&l7=r*!vad!a4ve%n*%bnd'
+SECRET_KEY = 'rmegs+ofg8lze!+#doka_(@y-ra8-*g*ew#8kvlfl8u8g%yhk^'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -108,6 +109,7 @@ ROOT_URLCONF = 'djangotmp.urls'
 WSGI_APPLICATION = 'djangotmp.wsgi.application'
 
 TEMPLATE_DIRS = (
+    "C:/github/pt/djangotmp/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -120,9 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
+    'apptmp',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
