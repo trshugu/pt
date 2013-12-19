@@ -9,6 +9,112 @@
 
 
 """
+# flask
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+  return "Hello World!"
+
+if __name__ == "__main__":
+  app.run()
+"""
+
+
+
+
+"""
+# jinja2
+from jinja2 import Template
+
+template = Template(u'''\
+<html>
+<head><title>{{ variable }}</title></head>
+<body>
+<ul>
+{% for item in item_list %}
+   <li>{{ item }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>''')
+
+print template.render(
+  variable='Value with <unsafe> data',
+  item_list=[1, 2, 3, 4, 5, 6]
+)
+"""
+
+
+
+"""
+# ユニットテスト
+import unittest
+
+class testFunc(unittest.TestCase):
+  def setup(self):
+    self.seq = range(10)
+  
+  def test_aaaa(self):
+    self.assertTrue(True)
+
+  def test_aaab(self):
+    self.assertTrue(True)
+
+
+if __name__ == '__main__':
+  unittest.main()
+"""
+
+
+
+
+"""
+# ロギング
+import logging
+import logging.handlers
+
+my_logger = logging.getLogger('MyLogger')
+my_logger.setLevel(logging.DEBUG)
+
+handler = logging.handlers.RotatingFileHandler("test.log", maxBytes=20, backupCount=5)
+my_logger.addHandler(handler)
+
+my_logger.warn("wawaw")
+my_logger.debug("mymy")
+
+my_logger.setLevel(logging.WARN)
+my_logger.warn("wawa2")
+my_logger.debug("mymy2")
+"""
+
+
+"""
+# ログファイル出力
+logging.basicConfig(filename="test.log",level=logging.DEBUG)
+logging.debug("dddd3")
+
+"""
+
+
+"""
+# 最初に実行される前にログレベルが設定されていないといけない
+logging.basicConfig(level=logging.DEBUG)
+logging.error("eeee")
+logging.debug("dd")
+
+
+if __name__ == '__main__':
+  logging.error("eeee2")
+  logging.debug("dd2")
+"""
+
+
+
+
+"""
 # 56:xrange：指定した範囲を返す。tolist()メソッドによってリストに変換可能
 print xrange(1, 10) # xrange(1, 10)
 print range(1, 10) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
