@@ -4,7 +4,34 @@
 
 
 
+"""
+# Juno
+from juno import *
 
+@route('/')
+def index(web):
+    return 'Juno hell is come here'
+
+@route('/hell/:name/')
+def hello(web, name):
+    return 'Hello, %s' %name
+
+run()
+"""
+
+
+"""
+# テスト用
+class Calc:
+  def ichi(self):
+    return "anokutara"
+  
+  def king(self):
+    return 12
+
+#c = Calc()
+#print c.ichi()
+"""
 
 
 
