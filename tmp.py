@@ -4,6 +4,209 @@
 
 
 
+
+
+
+
+"""
+# not global
+import time
+from multiprocessing import Process
+
+#LOOP = 1000 * 1000 * 100
+LOOP = 10
+
+def incre1():
+  value = 0
+  for i in range(LOOP):
+    print value
+    time.sleep(0.1)
+    value += 1
+
+def incre2():
+  value = 0
+  for i in range(LOOP):
+    print value
+    value -= 1
+
+if __name__ == "__main__":
+  Pr1 = Process(target=incre1)
+  Pr2 = Process(target=incre2)
+  
+  Pr1.start()
+  Pr2.start()
+  
+  Pr1.join()
+  Pr2.join()
+"""
+
+
+
+"""
+# マルチプロセスアウトオブオーダー
+from multiprocessing import Process
+
+LOOP = 1000 * 1000 * 10
+#LOOP = 1000
+value = 0
+
+def check(value):
+  if value != 1 and value != -1:
+    print "nattta"
+    raise
+
+def ichi():
+  global value,LOOP
+  for i in range(LOOP):
+    value = 1
+    check(value)
+
+def mai():
+  global value,LOOP
+  for i in range(LOOP):
+    value = -1
+    check(value)
+
+if __name__ == "__main__":
+  print value
+  
+  Pr1 = Process(target=ichi)
+  Pr2 = Process(target=mai)
+  
+  Pr1.start()
+  Pr2.start()
+  
+  Pr1.join()
+  Pr2.join()
+  
+  print value
+"""
+
+
+
+
+
+"""
+# マルチプロセスインクリメント
+from multiprocessing import Process
+
+#LOOP = 1000 * 1000 * 100
+LOOP = 10
+value = 0
+
+def incre():
+  global value,LOOP
+  for i in range(LOOP):
+    print value
+    value += 1
+
+if __name__ == "__main__":
+  print value
+  
+  Pr1 = Process(target=incre)
+  Pr2 = Process(target=incre)
+  
+  Pr1.start()
+  Pr2.start()
+  
+  Pr1.join()
+  Pr2.join()
+  
+  print value
+"""
+
+
+
+
+"""
+# インクリメント移植
+import sys
+from threading import Thread
+import cProfile
+
+LOOP = 1000 * 1000 * 100
+#LOOP = 1000
+value = 0
+
+def incre():
+  global value,LOOP
+  for i in range(LOOP):
+    value += 1
+
+if __name__ == "__main__":
+  print value
+  
+  th1 = Thread(target=incre)
+  th2 = Thread(target=incre)
+  
+  th1.start()
+  th2.start()
+  
+  th1.join()
+  th2.join()
+  
+  print value
+"""
+
+
+
+
+"""
+# java'sアウトオブオーダー移植
+import sys
+from threading import Thread
+import cProfile
+
+#LOOP = 1000 * 1000 * 1000
+LOOP = 1000 * 1000 * 10
+value = 0
+
+def check(value):
+  if value != 1 and value != -1:
+    print "nattta"
+    raise
+
+def ichi():
+  global value,LOOP
+  for i in range(LOOP):
+    value = 1
+    check(value)
+
+
+def mai():
+  global value,LOOP
+  for i in range(LOOP):
+    value = -1
+    check(value)
+
+if __name__ == "__main__":
+  print value
+  
+  th1 = Thread(target=ichi)
+  th2 = Thread(target=mai)
+  
+  th1.start()
+  th2.start()
+  
+  th1.join()
+  th2.join()
+  
+  print value
+"""
+
+
+
+"""
+# マルチプロセス1
+from multiprocessing import Pool
+p = Pool(5)
+def f(x):
+  return x*x
+
+p.map(f,[1,2,3])
+"""
+
+
 """
 # Juno
 from juno import *
