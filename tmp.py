@@ -7,6 +7,12 @@
 
 
 
+"""
+# py2とpy3
+#print "aaaa"
+print("aaaa")
+"""
+
 
 """
 # not global
