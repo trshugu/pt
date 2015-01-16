@@ -23,7 +23,7 @@ class testFunc(unittest.TestCase):
 
 
 """
-# ƒ†ƒjƒbƒgƒeƒXƒg
+# ãƒ¦ãƒ‹ãƒƒãƒˆãƒ†ã‚¹ãƒˆ
 class testFunc(unittest.TestCase):
   def setup(self):
     self.seq = range(10)
