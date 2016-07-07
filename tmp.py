@@ -4,7 +4,115 @@
 
 
 
+"""
+import types
 
+class UnicodeDecodeError(Exception):
+    def __str__(self):
+        return 'CharacterEncoding of an acquired file isn\'t UTF-8'
+
+class SystemError(Exception):
+    def __str__(self):
+        return 'SystemErrorOccurred'
+
+def nanika():
+  print "nanikastart"
+  
+  try:
+    print "tryasan"
+    # raise UnicodeDecodeError("ude")
+    # raise "kjasdf"
+    return {"body": unicode("aaaa", 'utf-8')}
+    
+    print "tryend"
+  except ValueError as de:
+    print "ve"
+    print(de)
+    return
+  except UnicodeError as de:
+    print "ue"
+    print(de)
+  except UnicodeDecodeError as de:
+    print(de)
+    # raise UnicodeDecodeError()
+    # return 'aaaa'
+  except SystemError as e:
+    print "sysysys"
+    print e
+  except Exception as e:
+    print "ex"
+    print e
+    print type(e)
+  
+  print "nanikaendt"
+
+
+print nanika()
+"""
+
+
+
+"""
+class Calc:
+  def ichi(self):
+    return "anokutara"
+  
+  def king(self):
+    return Exception("eeee")
+
+
+class UnicodeError(Exception):
+  # print Exception
+  # print "dokujidayoo"
+  
+  def __init__(self, value):
+    self.value = value
+    return
+  
+  def __str__(self):
+    return repr(self.value + "UNIERA")
+  
+class UnicodeDecodeError(Exception):
+  # print Exception
+  # print "dokudekodekodekojidayoo"
+  
+  # def __init__(self, value):
+  #   self.value = value
+  #   return
+  
+  def __str__(self):
+    return "waritotekitounanaiyou"
+    # return repr(self.value + "DEKODEKO")
+
+try:
+  raise UnicodeDecodeError("boiboi")
+  # raise UnicodeError("boiboi")
+  a = unicode('ああああ','utf-8')
+  
+  print "owari"
+
+except UnicodeError as e:
+  print "reigaiSuniuniuni"
+  print e
+  # raise NameError("nameee")
+  # print x # x >= 5になったとき例外が発生し、５が表示される
+  # c = Calc()
+  # print c.ichi()
+  # raise c.king()
+
+except UnicodeDecodeError as e:
+  print "reigaidekoooon"
+  print e
+
+except Exception as e:
+  print "reigaisita"
+  print e
+  # print x # x >= 5になったとき例外が発生し、５が表示される
+
+
+# c = Calc()
+# print c.ichi()
+"""
 
 
 """
