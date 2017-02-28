@@ -4,6 +4,77 @@
 
 
 
+
+
+
+
+
+
+
+"""
+# py2向けクロージャ
+def kuro(x):
+  def uja():
+    uja.x = uja.x + 1
+    return uja.x
+  
+  uja.x = x
+  return uja
+
+a = kuro(0)
+
+print(a())
+print(a())
+print(a())
+print(a())
+"""
+
+
+
+
+
+
+
+
+
+
+
+"""
+# tupleについての考察
+# print (1,2,4)
+
+t = 2,3,1,9
+print t
+# print len(t)
+print t[0]
+print t[1:]
+print t[:1]
+
+
+
+# for i in t:
+#   print i
+"""
+
+"""
+u = 100,
+print u
+print len(u)
+
+# アンパック
+a,b,e,f = t
+c = u
+"""
+
+
+
+"""
+s = tuple("asddkl\"'\"j',")
+print s
+print len(s)
+"""
+
+
 """
 import types
 
