@@ -7,8 +7,20 @@
 
 
 
+"""
+import datetime, freezegun
+from time import sleep
 
+date = datetime.datetime.now()
 
+def test_method():
+    print('１回目:' + str(datetime.datetime.now()))
+    sleep(5)
+    print('２回目:' + str(datetime.datetime.now()))
+
+if __name__ == '__main__':
+    test_method()
+"""
 
 
 """
