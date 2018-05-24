@@ -8,6 +8,127 @@
 
 
 """
+class Calc:
+  def ichi(self):
+    return "anokutara"
+  
+  def king(self):
+    return 12
+
+class fzbz:
+  def shi(self, i):
+    return i
+  
+  def check(i):
+    return "さん" + str(i)
+
+
+# print(Fzbz.check(2))
+"""
+
+
+
+
+
+
+
+
+"""
+# 3のつく数字も
+def fb(i):
+  if i % 3 == 0:
+    return "Fizz"
+  elif str(i).find("3") != -1:
+    return "Fizz"
+  else:
+    return str(i)
+"""
+
+
+
+
+"""
+# 3の倍数だけ
+def fb(i):
+  if i % 3 == 0: return "Fizz"
+  else: return str(i)
+
+
+print( fb(1) )
+print( fb(2) )
+print( fb(15) )
+print( fb(9) )
+print( fb(3) )
+print( fb(5) )
+print( fb(10) )
+print( fb(30) )
+print( fb(32) )
+print( fb(33) )
+print( fb(35) )
+print( fb(36) )
+"""
+
+
+
+"""
+# 通常のfizzbuzz
+def fb(i):
+  if i % 3 == 0 and i % 5 == 0:
+    return "FizzBuzz"
+  elif i % 3 == 0:
+    return "Fizz"
+  elif i % 5 == 0:
+    return "Buzz"
+  else:
+    return str(i)
+
+
+
+print( fb(1) )
+print( fb(2) )
+print( fb(15) )
+print( fb(9) )
+print( fb(3) )
+print( fb(5) )
+print( fb(10) )
+print( fb(30) )
+print( fb(32) )
+print( fb(33) )
+print( fb(35) )
+print( fb(36) )
+"""
+
+
+
+
+
+"""
+print("░░░░░░░░░░░░██░░░░░░░░░░░░░░")
+print("░░░░░░░░░░░█░░█░░░░░░░░░░░░░")
+print("░░░░░░░░░░░█░░█░░░░░░░░░░░░░")
+print("░░░░░░░░░░█░░░█░░░░░░░░░░░░░")
+print("░░░░░░░░░█░░░░█░░░░░░░░░░░░░")
+print("██████▄▄█░░░░░██████▄░░░░░░░")
+print("▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░")
+print("▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░")
+print("▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░")
+print("▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░")
+print("▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░")
+print("▓▓▓▓▓▓█████░░░░░░░░░██░░░░░░")
+print("█████▀░░░░▀▀████████░░░░░░░░")
+print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+"""
+
+
+
+"""
+print("あああ")
+"""
+
+
+# ここから3.6
+
+"""
 import datetime, freezegun
 from time import sleep
 
@@ -1501,3 +1622,5 @@ for i in range(2,10,3):
 # pythonに複数行コメントはなかった・・・
 print "aaaa"
 """
+
+

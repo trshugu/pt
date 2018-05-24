@@ -6,9 +6,12 @@ import tmp
 
 
 
+"""
+class testFunc(unittest.TestCase):
 
 
 """
+
 class testFunc(unittest.TestCase):
   def test_one(self):
     c = tmp.Calc()
@@ -17,9 +20,14 @@ class testFunc(unittest.TestCase):
   def test_red(self):
     d = tmp.Calc()
     self.assertEqual(12, d.king() )
-"""
-
-
+  
+  def test_three(self):
+    f = tmp.fzbz()
+    self.assertEqual(1 , f.shi(1) )
+  
+  def test_four(self):
+    f = tmp.fzbz()
+    self.assertEqual(2 , f.shi(2) )
 
 
 """
