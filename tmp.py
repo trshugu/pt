@@ -8,6 +8,27 @@
 
 
 """
+import math
+
+def cc(c,t):
+  return  math.ceil(((c**t - (c-1)**t) / c**t) * 100000000) / 1000000
+
+
+# print(cc(4,4))
+
+print(cc(16**16, 10000000))
+"""
+
+"""
+for i in range(16):
+  for j in range(10000000):
+    if (j+1) % 1000000 == 0:
+      print(str(i+1) + "文字" + str(j+1) + "回試行：" + str(cc(16**(i+1), j+1)))
+"""
+
+
+
+"""
 class Calc:
   def ichi(self):
     return "anokutara"
