@@ -7,6 +7,131 @@
 
 
 
+# rsa
+import random
+
+# 高速指数演算
+def modular_exp(a, b, n):
+  res = 1
+  while b != 0:
+    if b & 1 != 0:
+      res = (res * a) % n
+    
+    a = (a * a) % n
+    b = b >> 1
+  
+  return res
+
+# ランダムな素数
+def gen_rand(bit_length):
+  bits = [random.randint(0,1) for _ in range(bit_length - 2)]
+  ret = 1
+  for b in bits:
+    ret = ret * 2 + int(b)
+  return ret * 2 + 1
+
+# 素数確認
+def mr_primary_test(n, k=100):
+  if n == 1:
+    return False
+  
+  if n == 2:
+    return True
+  
+  if n % 2 == 0:
+    return False
+  
+  d = n - 1
+  s = 0
+  while d % 2 != 0:
+    d /= 2
+    s += 1
+  
+  r = [random.randint(1, n - 1) for _ in range(k)]
+  for a in r:
+    if modular_exp(a, d, n) != 1:
+      pl = [(2 ** rr) * d for rr in range(s)]
+      flg = True
+      for p in pl:
+        if modular_exp(a, p, n) == 1:
+          flg = False
+          break
+      
+      if flg:
+        return False
+  return True
+
+
+# 素数生成
+def gen_prime(bit):
+  while True:
+    ret = gen_rand(bit)
+    if mr_primary_test(ret):
+      break
+  return ret
+
+# print(gen_prime(128))
+
+
+# ユークリッドの互除法
+def xgcd(b, n):
+  x0, x1, y0, y1 = 1, 0, 0, 1
+  while n != 0:
+    q, b, n = b // n, n, b % n
+    x0, x1 = x1, x0 - q * x1
+    y0, y1 = y1, y0 - q * y1
+  return b, x0, y0
+
+# 鍵生成
+def gen_d(e, l):
+  _, x, _ = xgcd(e, l)
+  return x % l
+
+
+byt = 1024
+p = gen_prime(byt)
+q = gen_prime(byt)
+e = gen_prime(byt)
+
+d = gen_d(e, (p-1)*(q-1))
+n = p*q
+
+m=1230948723894783749823792374912309487238947837498237923749123094872389478374912121212
+
+c = modular_exp(m, e, n)
+
+import zlib
+comp = zlib.compress(str(c))
+
+decomp = zlib.decompress(comp)
+
+text = modular_exp(int(decomp), d, n)
+
+
+# print(p)
+# print(q)
+# print(d)
+# print(c)
+# print(comp)
+# print(decomp)
+# print(text)
+
+# 必要なものはe,d,n
+print("e")
+print(e)
+print("d")
+print(d)
+print("n")
+print(n)
+print("c")
+print(c)
+print("text")
+print(text)
+
+
+
+
+
 """
 import math
 
