@@ -7,6 +7,59 @@
 
 
 
+
+
+"""
+# フェルマー法
+def isqrt(n):
+    x = n
+    y = (x + 1) // 2
+    while y < x:
+        x = y
+        y = (x + n//x) // 2
+    return x
+
+# print(isqrt(36))
+# print(isqrt(133))
+# print(isqrt(14884))
+
+def is_square(n):
+    if not n % 48 in (0, 1, 4, 9, 16, 25, 33, 36):
+        return False
+
+    x = isqrt(n)
+    return x*x == n
+
+# print(is_square(36))
+# print(is_square(133))
+# print(is_square(14884))
+
+
+
+def fermat(n):
+    a = isqrt(n)
+    b2 = a*a - n
+    while not is_square(b2):
+        a += 1
+        b2 = a*a - n
+    return a - isqrt(b2)
+"""
+
+
+
+
+"""
+if __name__ == '__main__':
+    n = long(17772938775798494671)
+    p = fermat(n)
+    if p:
+        print "%d = %d * %d" % (n, p, n/p)
+    else:
+        print "%d is prime" % n
+"""
+
+
+"""
 # rsa
 import random
 
@@ -21,6 +74,8 @@ def modular_exp(a, b, n):
     b = b >> 1
   
   return res
+
+# print(modular_exp(13,11,141))
 
 # ランダムな素数
 def gen_rand(bit_length):
@@ -45,23 +100,81 @@ def mr_primary_test(n, k=100):
   s = 0
   while d % 2 != 0:
     d /= 2
+    print(d)
     s += 1
   
   r = [random.randint(1, n - 1) for _ in range(k)]
   for a in r:
+    # print(a)
+    # print(modular_exp(a, d, n))
     if modular_exp(a, d, n) != 1:
+      # print("====")
+      # print(s)
       pl = [(2 ** rr) * d for rr in range(s)]
+      # print(pl)
+      
       flg = True
       for p in pl:
+        # そもそもここに入らない
+        # print(modular_exp(a, p, n))
         if modular_exp(a, p, n) == 1:
+          # 指数が1のものがplにあったら継続して処理
           flg = False
+          # このfor文を抜ける
           break
       
       if flg:
+        # なかった(flgがTrueのままだった)らFalseを返却
         return False
+  
+  return True
+
+# print(mr_primary_test(2999)) # 
+
+# print(mr_primary_test(1)) # f
+# print(mr_primary_test(2)) # t
+# print(mr_primary_test(3)) # t
+# print(mr_primary_test(4)) # f
+
+# print(mr_primary_test(9007199254740991)) # f
+
+# print(mr_primary_test(9007199254740993)) # f
+
+# print(mr_primary_test(12)) # f
+# print(mr_primary_test(13)) # t
+# print(mr_primary_test(141)) # f
+# print(mr_primary_test(142)) # f
+"""
+
+
+
+"""
+# 1のものがあった→Trueをかえす
+def aa():
+  flg = True
+  for p in range(3):
+    print(p)
+    if p == 5:
+      print("kiteru")
+      print(p)
+      flg = False
+      #  ここでfor文を抜ける
+      break
+    
+    print("dokokaeru")
+    
+  if flg:
+    print("11")
+    return False
+    print("222")
+  print("3333")
   return True
 
 
+print(aa())
+"""
+
+"""
 # 素数生成
 def gen_prime(bit):
   while True:
@@ -85,18 +198,32 @@ def xgcd(b, n):
 # 鍵生成
 def gen_d(e, l):
   _, x, _ = xgcd(e, l)
+  print x
+  print l
+  print x % l
   return x % l
 
+print(xgcd(22, 45))
 
+
+# print(gen_prime(128))
+"""
+
+
+"""
 byt = 1024
-p = gen_prime(byt)
-q = gen_prime(byt)
-e = gen_prime(byt)
+# p = gen_prime(byt)
+# q = gen_prime(byt)
+# e = gen_prime(byt)
+
+p = 195531435739008959673282737963575264469
+q = 242779475795881938335203689155820874691
+e = 188952817630177726230187917619251142649
 
 d = gen_d(e, (p-1)*(q-1))
 n = p*q
 
-m=1230948723894783749823792374912309487238947837498237923749123094872389478374912121212
+m=1010101
 
 c = modular_exp(m, e, n)
 
@@ -107,15 +234,29 @@ decomp = zlib.decompress(comp)
 
 text = modular_exp(int(decomp), d, n)
 
+print("==c==")
+print(c)
+print("==d==")
+print(d)
+# print(n)
 
+
+# print(n)
+# print("===")
 # print(p)
 # print(q)
+# print(e)
+# print("===")
 # print(d)
+# 11540259110620643804050581540467802225296462730371363615562484385880968849053
 # print(c)
 # print(comp)
 # print(decomp)
 # print(text)
+"""
 
+
+"""
 # 必要なものはe,d,n
 print("e")
 print(e)
@@ -127,8 +268,7 @@ print("c")
 print(c)
 print("text")
 print(text)
-
-
+"""
 
 
 
