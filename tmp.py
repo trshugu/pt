@@ -7,6 +7,94 @@
 
 
 
+"""
+fact = lambda n: 1 if n == 0 else n * fact(n - 1) 
+
+print( fact(8) )
+
+
+print( (fact, 8) )
+
+
+t = (fact, 8)
+print( t[0](t[1]) )
+"""
+
+
+
+"""
+print((1,2))
+print((1,))
+print((1))
+print([1,2])
+
+
+
+print( (1,2) )
+print( tuple )
+print( (1,2,3,4,5,6) )
+print( len( (1,2,3,4,5,6) ) )
+print( (1,2,3,4,5,6).count(3) )
+print( (1,2,3,4,5,6)[0] )
+print( (1,2,3,4,5,6)[1:] )
+
+def cons(a, t):
+  return (a,)+ tuple(map(lambda x: x, t) )
+
+print( cons(1, (4,5)) )
+print( (1,) + (4,5) )
+
+
+def zero(): return ()
+def inc(x): return ("♪",) + x
+def dec(x): return x[1:]
+
+print( zero() )
+print( inc(zero()) )
+print( dec(inc(inc(zero()))) )
+print( dec(inc(inc(inc(zero())))) )
+
+def add(x, y):
+  if not y:
+    return x
+  else:
+    return add(inc(x), dec(y))
+
+print("====")
+print( add( dec(inc(inc(inc(zero())))), inc(inc(inc(zero()))) ) )
+
+def sub(x, y):
+  if not x:
+    return x
+  elif not y:
+    return x
+  else:
+    return sub( dec(x), dec(y) )
+
+print( sub( inc(inc(inc(zero()))), inc(inc(zero())) ) )
+
+
+def mul(x, y): return muli(x, y, zero())
+def muli(x, y, n):
+  if not y:
+    return n
+  else:
+    return muli(x, dec(y), add(n,x))
+
+
+print( mul( inc(inc(inc(zero()))), inc(inc(zero())) ) )
+
+def div(x, y): return divi(x, y, zero())
+def divi(x, y, n):
+  if not x:
+    return n
+  else:
+    return divi(sub(x, y), y, inc(n))
+
+
+print( div( inc(inc(inc(inc(inc(inc(inc(inc(zero())))))))), inc(inc(zero())) ) )
+"""
+
 
 
 """
